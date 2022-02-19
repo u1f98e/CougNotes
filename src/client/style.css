@@ -1,17 +1,48 @@
+@font-face {
+    font-family: OpenSans;
+    src: url(./font/OpenSans/OpenSans-Light.ttf) format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    background: #89182a;
+    
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 6vh;
+    
+    width: 10rem;
+}
 .login {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    flex-direction: column;
+    height: 100vh;
+    
 }
 
-.login h1 {
-    margin-top: 2vh;
+.login__form input[type="text"] {
+    padding: 0.15rem 0.5rem;
+}
+
+.enter {
+    margin-top: 3vh;
+    font-size: 0.875rem;
+    font-family: OpenSans;
+}
+
+.enter a {
+    color: #fff;
+    text-decoration: none;
 }
