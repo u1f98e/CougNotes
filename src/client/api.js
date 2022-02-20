@@ -11,7 +11,7 @@ function test() {
 }
 
 // Sending and receiving data in JSON format using POST method
-function get_url(url, callback) {
+export function get_url(url) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", url, true);
 	xhr.responseType = 'text';
@@ -23,7 +23,7 @@ function get_url(url, callback) {
 	xhr.send();
 }
 
-function post_json(url, data, callback) {
+export function post_json(url, data, callback) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
@@ -35,39 +35,39 @@ function post_json(url, data, callback) {
 	xhr.send(JSON.stringify(data));
 }
 
-function get_student(uid, callback) {
+export function get_student(uid, callback) {
 	get_url("/get-student/" + uid, callback);
 }
 
-function get_student_by_sid(student_uid, callback) {
+export function get_student_by_sid(student_uid, callback) {
 	get_url("/get-student-by-sid/" + student_uid, callback);
 }
 
-function get_student_classes(uid, callback) {
+export function get_student_classes(uid, callback) {
 	get_url("/get-student-classes/" + uid, callback);
 }
 
-function get_class(id, callback) {
+export function get_class(id, callback) {
 	get_url("/get-class/" + id, callback);
 }
 
-function get_class_from_code(code, callback) {
+export function get_class_from_code(code, callback) {
 	get_url("/get-class-by-code/" + code, callback);
 }
 
-function get_next_post(class_id, callback) {
+export function get_next_post(class_id, callback) {
 	get_url("/get-next-post/" + class_id, callback);
 }
 
-function get_responses(post_id, callback) {
-	get_url("/get-resp/" + post_id, callback);
+export function get_next_response(post_id, callback) {
+	get_url("/get-next-resp/" + post_id, callback);
 }
 
-function reset_posts(callback) {
+export function reset_posts(callback) {
 	get_url("/reset-posts", callback);
 }
 
-function create_student(student_id, first_name, last_name, img_url, callback) {
+export function create_student(student_uid, first_name, last_name, img_url, callback) {
 	var data = {
 		"uid": 0,
 		"student_id": student_id,
@@ -78,7 +78,7 @@ function create_student(student_id, first_name, last_name, img_url, callback) {
 	post_json("/create-student", data, callback);
 }
 
-function create_class(class_name, section, callback) {
+export function create_class(name, section, callback) {
 	var data = {
 		"id": 0,
 		"class_name": class_name,
@@ -87,7 +87,7 @@ function create_class(class_name, section, callback) {
 	post_json("/create-class", data, callback);
 }
 
-function create_post(title, content, img_url, student_uid, class_id, callback) {
+export function create_post(title, content, img_url, student_uid, class_id, callback) {
 	var data = {
 		"id": 0,
 		"title": title,
@@ -99,11 +99,11 @@ function create_post(title, content, img_url, student_uid, class_id, callback) {
 	post_json("/create-class", data, callback);
 }
 
-function gen_class_code(callback) {
-	get_url("/gen-class-code", callback);
+export function gen_class_code(cid, callback) {
+	get_url("/gen-class-code/" + cid, callback);
 }
 
-function student_add_class(student_uid, class_id, callback) {
+export function student_add_class(student_uid, class_id, callback) {
 	var data = [student_uid, class_id];
 	post_json("/create-class", data, callback);
 }

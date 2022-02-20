@@ -44,6 +44,7 @@ body {
 
 .login__form input[type="text"]:focus {
     outline: none;
+    border: 0;
 }
 
 .login__form button {
@@ -53,7 +54,6 @@ body {
     padding: 0.125rem 0.0625rem;
 
     background: #fff;
-    border: 0;
 }
 
 .enter {
