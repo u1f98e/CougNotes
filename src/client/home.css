@@ -19,7 +19,7 @@
 }
 
 body {
-    background: #89182a;
+    overflow: hidden;
 }
 
 .nav {
@@ -30,17 +30,29 @@ body {
     width: 100%;
     height: 15vh;
 
-    padding: 0 5%;
+    background: #89182a;
 }
 
 .nav li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    min-width: 10%;
+
     list-style-type: none;
+
     font-family: "Open Sans", sans-serif;
+    
 }
 
 .cougnotes {
     font-size: 2rem;
-    color: #ded;
+    color: #fff;
+}
+
+.searchbar {
+    position: relative;
 }
 
 .searchbar input[type="text"] {
@@ -59,22 +71,28 @@ body {
 }
 
 .profile-img {
-    width: 2.5rem;
+    width: 3rem;
+
     border-radius: 10rem;
-    padding: 15%;
-    border: 0.1rem solid #aaa;
+    border: 0.1rem solid #fff;
+
+    padding: 10%;
+
+    filter: brightness(200%);
 }
 
 .rooms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10vh;
+
     font-size: 1rem;
-    color: #ded;
+    color: #89182a;
     font-family: "Open Sans", sans-serif;
     text-align: center;
 }
-
-/* .private-notes {
-    
-} */
 
 .not-in-room {
     display: flex;
@@ -82,22 +100,17 @@ body {
     align-items: center;
     
     border-radius: 1rem;
-    border: 0.125rem solid #fff;
+    border: 0.125rem solid #000;
     
-
     width: 40%;
 
-    margin-top: 20vh;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 8vw 0;
 }
 
-.not-in-room h1 {
-    padding: 10% 0;
-    
-    font-size: 1.5rem;
+.not-in-room h1 {    
+    font-size: 2rem;
     font-family: "Open Sans", sans-serif;
-    color: #fff;
+    color: #000;
     text-align: center;
     font-weight: normal;
 }
@@ -110,40 +123,40 @@ body {
     display: flex;  
     justify-content: center;
     align-items: center;
-
-    margin: 5vh 0;
 }
 
 .room__buttons a {
     font-size: 1.25rem;
     font-family: "Open Sans", sans-serif;
-    color: #ded;
+    color: #000;
     text-decoration: none;
     
     margin: 5%;
     padding: 1% 5%;
     
-    border-color: #fff;
+    border-color: #000;
     border-style: solid;
     border-radius: 0.1875rem;
 }
 
 .room__buttons a:nth-child(1):hover {
-    transition: ease-out 0.5s;
+    transition: ease-out 0.33s;
 
-    box-shadow: inset 300px 0 0 0 #fff;
+    box-shadow: inset 300px 0 0 0 #89182a;
+    border-color: #89182a;
 
-    color: #89182a;
+    color: #fff;
 
     cursor: pointer;
 }
 
 .room__buttons a:nth-child(2):hover {
-    transition: ease-out 0.5s;
+    transition: ease-out 0.33s;
 
-    box-shadow: inset 300px 0 0 0 #fff;
+    box-shadow: inset 300px 0 0 0 #89182a;
+    border-color: #89182a;
 
-    color: #89182a;
-    
+    color: #fff;
+
     cursor: pointer;
 }
