@@ -24,20 +24,19 @@ function post_json(url, data, callback) {
 			callback(false, null);
 		}
 	};
-	var data = JSON.stringify({"email": "hey@mail.com", "password": "101010"});
 	xhr.send(data);
 }
 
-function get_student(id, callback) {
-	get_url("/get-student/" + id, callback);
+function get_student(uid, callback) {
+	get_url("/get-student/" + uid, callback);
 }
 
-function get_student_by_sid(student_id, callback) {
-	get_url("/get-student-by-sid/" + student_id, callback);
+function get_student_by_sid(student_uid, callback) {
+	get_url("/get-student-by-sid/" + student_uid, callback);
 }
 
-function get_student_classes(id, callback) {
-	get_url("/get-student-classes/" + id, callback);
+function get_student_classes(uid, callback) {
+	get_url("/get-student-classes/" + uid, callback);
 }
 
 function get_class(id, callback) {
@@ -60,14 +59,13 @@ function reset_posts(callback) {
 	get_url("/reset-posts", callback);
 }
 
-function create_student(student_id, first_name, last_name, img_url, callback) {
+function create_student(student_uid, first_name, last_name, img_url, callback) {
 	var data = {
 		"id": 0,
-		"student_id": student_id,
+		"student_uid": student_uid,
 		"first_name": first_name,
 		"last_name": last_name,
 		"img_url": img_url,
-		"classes": []
 	};
 	post_json("/create-student", data, callback);
 }
@@ -77,28 +75,27 @@ function create_class(name, section, callback) {
 		"id": 0,
 		"name": name,
 		"section": section,
-		"students": [],
 	};
 	post_json("/create-class", data, callback);
 }
 
-function create_post(title, text, img_urls, student_id, class_id, callback) {
+function create_post(title, content, img_url, student_uid, class_id, callback) {
 	var data = {
 		"id": 0,
 		"title": title,
-		"text": text,
-		"img_urls": img_urls,
-		"student_id": student_id,
+		"content": content,
+		"img_urls": img_url,
+		"student_uid": student_uid,
 		"class_id": class_id,
 	};
 	post_json("/create-class", data, callback);
 }
 
 function gen_class_code(cid, callback) {
-	get_url("/gen-class-code/" + code, callback);
+	get_url("/gen-class-code/" + cid, callback);
 }
 
-function student_add_class(student_id, class_id, callback) {
-	var data = [student_id, class_id];
+function student_add_class(student_uid, class_id, callback) {
+	var data = [student_uid, class_id];
 	post_json("/create-class", data, callback);
 }

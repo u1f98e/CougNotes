@@ -3,29 +3,29 @@ use std::{path::Path, sync::Arc};
 use std::sync::Mutex;
 
 use async_std;
-use rocket::serde::{Serialize, Deserialize};
-use sqlx::mysql::MySqlPoolOptions as PoolOptions;
 
 #[macro_use] extern crate rocket;
 use rocket::fs::NamedFile;
 use rocket::serde::{Serialize, Deserialize, json::Json};
 
-
+use sqlx::mysql::MySqlPoolOptions as PoolOptions;
 use sqlx::mysql::MySqlPool as Pool;
+use sqlx::FromRow;
+
+
 use static_init::dynamic;
 
 #[dynamic]
 pub static sql_pool: Mutex<Option<Pool>> = Mutex::new(None);
 
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, FromRow)]
 struct Student {
-    id: u32,
+    uid: u32,
     student_id: u32,
     first_name: String,
     last_name: String,
     img_url: String,
-    classes: Vec<u32>
 }
 
 #[derive(Serialize, Deserialize)]
@@ -33,16 +33,15 @@ struct Class {
     id: u32,
     name: String,
     section: String,
-    students: Vec<u32>
 }
 
 #[derive(Serialize, Deserialize)]
 struct Post {
     id: u32,
     title: String,
-    text: String,
-    img_urls: Vec<String>,
-    student_id: u32,
+    content: String,
+    img_url: String,
+    student_uid: u32,
     class_id: u32
 }
 
@@ -57,38 +56,52 @@ async fn files(file: PathBuf) -> Option<NamedFile> {
     NamedFile::open(Path::new("src/client/").join(file)).await.ok()
 }
 
-#[get("/get-student/<id>")]
-async fn get_student(id: String) -> Json<Student> {
+#[get("/get-student/<uid>")]
+async fn get_student(uid: &str) -> Option<Json<Student>> {
+    let pool_lock = sql_pool.lock().unwrap();
+    let pool = pool_lock.as_ref().unwrap();
 
+    let student = sqlx::query_as::<_, Student>(
+        "
+SELECT uid as id, first_name, last_name, img_url, student_id
+FROM Students
+WHERE uid = ?;
+        "
+    )
+    .bind(uid)
+    .fetch_one(pool)
+    .await.unwrap();
+
+    Some(Json(student))
 }
 
 #[get("/get-student-by-sid/<student_id>")]
-async fn get_student_by_sid(student_id: String) -> Json<Student> {
+async fn get_student_by_sid(student_id: &str) -> Option<Json<Student>> {
 
 }
 
 #[get("/get-student-classes/<id>")]
-async fn get_student_classes(id: String) -> Json<Vec<Class>> {
+async fn get_student_classes(id: &str) -> Option<Json<Vec<Class>>> {
 
 }
 
 #[get("/get-class/<cid>")]
-async fn get_class(cid: String) -> Json<Class> {
+async fn get_class(cid: &str) -> Option<Json<Class>> {
 
 }
 
 #[get("/get-class-by-code/<code>")]
-async fn get_class_from_code(code: String) -> Json<Class> {
+async fn get_class_from_code(code: &str) -> Option<Json<Class>> {
 
 }
 
 #[get("/get-next-post/<cid>")]
-async fn get_next_post(cid: String) -> Json<Post> {
+async fn get_next_post(cid: &str) -> Option<Json<Post>> {
 
 }
 
 #[get("/get-next-resp/<pid>")]
-async fn get_next_response(pid: String) -> Json<Post> {
+async fn get_next_response(pid: &str) -> Option<Json<Post>> {
 
 }
 
