@@ -35,12 +35,9 @@ All visual elements of the UI were written in HTML and styled with CSS. Interact
           <ul> 
             <li> Starts server; outputs port number to screen (most likely 3306) </li>
             <li> Navigate to http://localhost::port_number in your favorite web browser </li>
-           </ul>
-
-      </ul>   
-  
-  
-</ul>
-
+        </ul>
+  </ul>
+  <li> Installation is complete</li>
+  </ul>
 
 
