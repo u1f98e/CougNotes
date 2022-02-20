@@ -9,7 +9,6 @@ dependencies = [
  "async-std",
  "rocket",
  "serde",
- "serde_json",
  "sqlx",
  "static_init",
 ]
@@ -1500,6 +1499,7 @@ dependencies = [
  "rocket_codegen",
  "rocket_http",
  "serde",
+ "serde_json",
  "state",
  "tempfile",
  "time",
