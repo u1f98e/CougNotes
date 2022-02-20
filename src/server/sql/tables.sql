@@ -36,3 +36,11 @@ CREATE TABLE classes (
 	) Engine = InnoDB;
 
 SHOW tables;
+
+
+/*queries below */
+
+/*Return UID from class ID*/
+select codes from classCodes INNER JOIN classes ON classCodes.id = classes.id where
+classes.id = 2;
+
