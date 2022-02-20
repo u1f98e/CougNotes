@@ -1,0 +1,23 @@
+body{
+    background-color: #89182a;
+}
+
+.profile-picture{
+    text-align: right;
+    font: "Open Sans", sans-serif;
+}
+img{
+
+    border: 0.1rem solid black;
+    border-radius: 50%;
+    
+
+}
+.bio-box{
+    border:1px solid black;
+    padding-bottom: 15%;
+    padding-right: 50% ;
+}
+
+
+

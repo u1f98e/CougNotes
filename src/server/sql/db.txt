@@ -1,0 +1,49 @@
+---------------------+
+| Tables_in_CougNotes |
++---------------------+
+| Notes               |
+| classCodes          |
+| classes             |
+| students            |
++---------------------+
+
+
+Students:
++------------+----------------------+------+-----+---------+----------------+
+| Field      | Type                 | Null | Key | Default | Extra          |
++------------+----------------------+------+-----+---------+----------------+
+| uid        | smallint(5) unsigned | NO   | PRI | NULL    | auto_increment |
+| firstName  | varchar(200)         | NO   |     | NULL    |                |
+| lastName   | varchar(200)         | NO   |     | NULL    |                |
+| profilePic | text                 | YES  |     | NULL    |                |
+| studentID  | smallint(5) unsigned | NO   |     | NULL    |                |
++------------+----------------------+------+-----+---------+----------------+
+
+classCodes:
++-------+----------------------+------+-----+---------+----------------+
+| Field | Type                 | Null | Key | Default | Extra          |
++-------+----------------------+------+-----+---------+----------------+
+| id    | smallint(5) unsigned | NO   | PRI | NULL    | auto_increment |
++-------+----------------------+------+-----+---------+----------------+
+
+classes:
++---------------+----------------------+------+-----+---------+----------------+
+| Field         | Type                 | Null | Key | Default | Extra          |
++---------------+----------------------+------+-----+---------+----------------+
+| id            | smallint(5) unsigned | NO   | PRI | NULL    | auto_increment |
+| className     | varchar(100)         | NO   |     | NULL    |                |
+| section       | varchar(10)          | NO   |     | NULL    |                |
+| classCodes_id | smallint(5) unsigned | NO   | MUL | NULL    |                |
++---------------+----------------------+------+-----+---------+----------------+
+
+Notes:
++--------------+----------------------+------+-----+---------+----------------+
+| Field        | Type                 | Null | Key | Default | Extra          |
++--------------+----------------------+------+-----+---------+----------------+
+| id           | smallint(5) unsigned | NO   | PRI | NULL    | auto_increment |
+| content      | text                 | YES  |     | NULL    |                |
+| imageURLs    | text                 | YES  |     | NULL    |                |
+| students_uid | smallint(5) unsigned | NO   | MUL | NULL    |                |
++--------------+----------------------+------+-----+---------+----------------+
+
+

@@ -21,14 +21,21 @@ body {
     
     width: 10rem;
 }
+
 .login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    height: 100vh;
-    
+    height: 100vh;    
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .login__form input[type="text"] {
@@ -37,6 +44,16 @@ body {
 
 .login__form input[type="text"]:focus {
     outline: none;
+}
+
+.login__form button {
+    width: 50%;
+
+    margin-top: 2vh;
+    padding: 0.125rem 0.0625rem;
+
+    background: #fff;
+    border: 0;
 }
 
 .enter {
