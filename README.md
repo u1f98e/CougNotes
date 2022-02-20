@@ -11,6 +11,10 @@ Between COVID quarantines and inclement weather, through no fault of their own C
 
 A MariaDB database forms the foundation of the CougNotes backend API. 5 tables provide storage for student accounts, classes, notes, a mapping of students to classes, and a mapping of classes to the alphanumeric class codes used to access CougNotes rooms. A provisioning script (tables.sql) is provided, which stands up a CougNotes database prepopulated with all necessary tables. Default display queries used by the API are also included, and available as templates for future extensions. 
 
-<b> API: </b>
+<b> API & Backend: </b>
 
 CougNotes provides an API as a bridge between the database interface code (written in Rust) and the javascript runtime API which ties into the website. The API converts the JSON files used by the website into HTTP POST and GET requests that are then converted into SQL commands and queries by the backend. 
+
+<b> UI/Frontend: </b>
+All visual elements of the UI were written in HTML and styled with CSS. Interactive elements use JavaScript and call functions from the CougNotes API. 
+
