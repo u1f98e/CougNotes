@@ -81,6 +81,12 @@ body {
     filter: brightness(200%);
 }
 
+.profile-img:hover {
+    transition: 0.5s ease-in;
+    
+    padding: 8%;
+}
+
 .rooms {
     display: flex;
     justify-content: center;
@@ -102,9 +108,9 @@ body {
     border-radius: 1rem;
     border: 0.125rem solid #000;
     
-    width: 40%;
+    width: 45%;
 
-    padding: 8vw 0;
+    padding: 6.5% 0;
 }
 
 .not-in-room h1 {    
@@ -113,6 +119,8 @@ body {
     color: #000;
     text-align: center;
     font-weight: normal;
+
+    margin-left: 10%;
 }
 
 #isInRoom {

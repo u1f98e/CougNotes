@@ -1,23 +1,86 @@
-body{
-    background-color: #89182a;
+@font-face {
+    font-family: "Open Sans";
+    src: url(./font/OpenSans/OpenSans-Light.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.profile-picture{
-    text-align: right;
-    font: "Open Sans", sans-serif;
+@font-face {
+    font-family: "Open Sans";
+    src: url(./font/OpenSans/OpenSans-Bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
-img{
 
-    border: 0.1rem solid black;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute; 
+    background-color: #fff;
+}
+
+.sidemenu {
+    width: 25%;
+
+    text-align: center;
+}
+
+.sidemenu article {
+    font-family: "Open Sans", sans-serif;
+}
+
+.profile {
+    width: 75%;
+}
+
+.profile-picture {
+    margin-top: 90px;
+    margin-left: 140px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.profile-picture p1 {
+    color: #000;
+}
+
+.name {
+    font-weight: bold;
+}
+
+img {
+    border: 0.1rem solid #000;
     border-radius: 50%;
+}
+
+.bio-box {
+    border-top: 1px solid #000;
+    width: 80%;
+    margin-top: 0.25rem;
+    padding-bottom: 15%;
+    /* padding:15%; */
+    /* padding-right: 5%; */
     
+}
+
+.settings{
+    margin-bottom: 100px;
+}
+
+.private-notes {
+    margin-bottom:100px;
 
 }
-.bio-box{
-    border:1px solid black;
-    padding-bottom: 15%;
-    padding-right: 50% ;
-}
+
+
+
 
 
 
