@@ -1,15 +1,26 @@
+function log_callback (status, data) {
+	console.log(status);
+	console.log(data);
+}
+
+function test() {
+	get_student(1, log_callback);
+	// get_student_by_sid(00123, log_callback);
+	// create_student(12345, "tom", "aaa", "aweffa", log_callback);
+	// get_class(1, log_callback);
+}
+
 // Sending and receiving data in JSON format using POST method
-function get_url(url) {
+function get_url(url, callback) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", url, true);
-	xhr.responseType = 'json';
+	xhr.responseType = 'text';
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4 && xhr.status === 200) {
-			callback(true, JSON.parse(xhr.responseText))
-		} else {
-			callback(false, null)
+			callback(xhr.status, JSON.parse(xhr.responseText))
 		}
     };
+	xhr.send();
 }
 
 function post_json(url, data, callback) {
@@ -18,13 +29,10 @@ function post_json(url, data, callback) {
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === 4 && xhr.status === 200) {
-			callback(true, xhr.responseText);
-		}
-		else {
-			callback(false, null);
+			callback(xhr.status, JSON.parse(xhr.responseText));
 		}
 	};
-	xhr.send(data);
+	xhr.send(JSON.stringify(data));
 }
 
 function get_student(uid, callback) {
@@ -59,10 +67,10 @@ function reset_posts(callback) {
 	get_url("/reset-posts", callback);
 }
 
-function create_student(student_uid, first_name, last_name, img_url, callback) {
+function create_student(student_id, first_name, last_name, img_url, callback) {
 	var data = {
-		"id": 0,
-		"student_uid": student_uid,
+		"uid": 0,
+		"student_id": student_id,
 		"first_name": first_name,
 		"last_name": last_name,
 		"img_url": img_url,

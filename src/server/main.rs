@@ -23,8 +23,6 @@ struct Student {
     img_url: String,
 }
 
-
-
 #[derive(Serialize, Deserialize, FromRow)]
 struct Class {
     id: u32,
@@ -55,25 +53,23 @@ async fn files(file: PathBuf) -> Option<NamedFile> {
 
 #[get("/get-student/<uid>")]
 async fn get_student(uid: &str, state: &State<AppState>) -> Option<Json<Student>> {
-    let id: u32 = match uid.parse::<u32>().ok() {
-        Some(n) => n,
-        None => return None
-    };
-
     let student = sqlx::query_as::<_, Student>(
         "
-SELECT uid as id, first_name, last_name, img_url, student_id
+SELECT uid, first_name, last_name, img_url, student_id
 FROM Students
 WHERE uid = ?;
             "
     )
-        .bind(id)
+        .bind(uid)
         .fetch_one(&state.pool)
         .await;
     
     match student {
         Ok(s) => Some(Json(s)),
-        Err(_) => None
+        Err(err) => {
+            println!("{err}");
+            None
+        }
     }
 }
 
@@ -81,7 +77,7 @@ WHERE uid = ?;
 async fn get_student_by_sid(student_id: &str, state: &State<AppState>) -> Option<Json<Student>> {
     let student = sqlx::query_as::<_, Student>(
         "
-SELECT uid as id, first_name, last_name, img_url, student_id
+SELECT uid, first_name, last_name, img_url, student_id
 FROM Students
 WHERE student_id = ?;
             "
@@ -217,6 +213,7 @@ WHERE
 
 #[get("/reset-posts")]
 async fn reset_posts(state: &State<AppState>) -> Json<bool> {
+    println!("reset posts");
     state.last_loaded_post_id.store(0, Ordering::Relaxed);
     Json(true)
 }
@@ -238,7 +235,10 @@ INSERT INTO Students (first_name, last_name, img_url, student_id)
     
     match result {
         Ok(_) => Json(true),
-        Err(_) => Json(false)
+        Err(err) => {
+            println!("{err}");
+            Json(false)
+        }
     }
 }
 

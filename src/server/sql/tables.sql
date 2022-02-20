@@ -55,13 +55,20 @@ SHOW tables;
 /*queries below */
 
 /* Create student */
-INSERT INTO Students (first_name, last_name, img_url, student_id)
-	VALUES ("Dave", "idk", "www.com", 0012345);
+ 
 
 INSERT INTO Classes (class_name, section)
 	VALUES("Cool class", "aaaa");
+    
+INSERT INTO Students (first_name, last_name, img_url, student_id)
+    VALUES ("test", "stuend", "", 12234);            
 
 SELECT * FROM Students;
+
+SELECT uid as id, first_name, last_name, img_url, student_id
+FROM Students
+WHERE uid = 1;
+
 
 /* Get Student by id */
 SELECT uid as id, first_name, last_name, img_url, student_id
