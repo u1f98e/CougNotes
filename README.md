@@ -37,7 +37,7 @@ All visual elements of the UI were written in HTML and styled with CSS. Interact
             <li> Navigate to http://localhost::port_number in your favorite web browser </li>
         </ul>
   </ul>
-  <li> Installation is complete</li>
+  <li> Login with sample user ID# 011426789</li>
   </ul>
 
 
