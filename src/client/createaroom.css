@@ -1,0 +1,73 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url(./font/OpenSans/OpenSans-Light.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url(./font/OpenSans/OpenSans-Bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ body{
+     background-color: #89182a;
+     color: white;
+ }
+
+
+.create-room h1 {
+    text-align: center;
+    text-underline-position: below;
+    margin-top: 30px;
+    margin-bottom: 47px;  
+    -ms-text-underline-position: 2; 
+
+}
+
+.room-name{
+    margin-left: 28%;
+    
+
+}
+
+.section-number{
+    margin-left: 28%;
+    margin-top: 35px;
+    margin-bottom: 25px;
+
+}
+
+.create{
+    
+    margin:auto;
+    border: 0.1rem solid #000;
+    width: 10%;
+    height: 25px;  
+    
+    
+    /* margin-top: 10px;
+    margin-left: 250px; */
+    
+}
+.create p a{
+
+  text-align: left;
+  color:white;
+
+   
+    
+}
+
+
+
+
+
+
