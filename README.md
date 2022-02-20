@@ -18,3 +18,29 @@ CougNotes provides an API as a bridge between the database interface code (writt
 <b> UI/Frontend: </b>
 All visual elements of the UI were written in HTML and styled with CSS. Interactive elements use JavaScript and call functions from the CougNotes API. 
 
+# Installation:
+
+<ul>
+  <li> Clone Repository </li>
+  <li> Database </li>
+    <ul> 
+      <li> Install MariaDB according to your distro's instructions </li>
+      <li> configure user authentication </li>
+      <li> Run tables.sql located in src/server/sql </li>
+  </ul>
+  <li> Rust </li>
+      <ul> 
+        <li> Cargo Build (Compiles server application) </li>
+        <li> Cargo run </li>
+          <ul> 
+            <li> Starts server; outputs port number to screen (most likely 3306) </li>
+            <li> Navigate to http://localhost::port_number in your favorite web browser </li>
+           </ul>
+
+      </ul>   
+  
+  
+</ul>
+
+
+
