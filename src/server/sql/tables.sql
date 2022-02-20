@@ -6,6 +6,7 @@ CREATE TABLE students (
 	firstName VARCHAR(200) NOT NULL,
 	lastName  VARCHAR(200) NOT NULL,
 	profilePic TEXT,
+	bio text,
 	studentID SMALLINT UNSIGNED NOT NULL
 	) ENGINE = InnoDB;
 
