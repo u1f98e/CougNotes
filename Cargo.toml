@@ -3,10 +3,6 @@ name = "CougNotes"
 version = "0.1.0"
 edition = "2021"
 
-[lib]
-name = "cougNotes"
-path = "src/server/lib.rs"
-
 [[bin]]
 name = "server"
 path = "src/server/main.rs"
@@ -15,6 +11,7 @@ path = "src/server/main.rs"
 
 [dependencies]
 async-std = { version = "1.10.0", features = [ "attributes" ] }
+# dotenv = "0.15.0"
 rocket = { git = "https://github.com/SergioBenitez/Rocket", rev = "e382bc5", features = [ "json" ] }
 serde = { version = "1.0.117", features = [ "derive" ]}
 sqlx = { version = "0.5", features = [ "runtime-async-std-native-tls", "mysql" ] }
