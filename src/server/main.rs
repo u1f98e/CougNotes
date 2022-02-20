@@ -340,7 +340,7 @@ async fn launch() -> _ {
     // Create the connection pool for the sql server
     let pool = PoolOptions::new()
         .max_connections(5)
-        .connect("localhost:3306").await.unwrap();
+        .connect("sql://localhost:3306/CougNotes").await.unwrap();
     
     let routes = routes![
         index,
