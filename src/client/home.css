@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url(./font/OpenSans/OpenSans-Light.ttf) format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #89182a;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 15vh;
+
+    padding: 0 5%;
+}
+
+.nav li {
+    list-style-type: none;
+    font-family: "Open Sans", sans-serif;
+}
+
+.cougnotes {
+    font-size: 1.25rem;
+    color: #ded;
+}
+
+.searchbar input[type="text"] {
+    text-align: center;
+    
+    padding: 2% 0;
+    
+    background: #fff;
+    
+    border: 0.125rem solid #fff;
+    border-radius: 0.25rem;
+}
+
+.searchbar input[type="text"]:focus {
+    outline: none;
+}
+
+.profile-img {
+    width: 2.5rem;
+    border-radius: 10rem;
+    padding: 15%;
+    border: 0.1rem solid #aaa;
+}
+
+.rooms {
+    font-size: 1rem;
+    color: #ded;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* .private-notes {
+    
+} */
+
+#isInRoom {
+    display: none;
+}
+
+.rooms .room__button {
+    text-decoration: none;
+    color: #ded;
+
+    font-size: 1rem;
+
+
+}
