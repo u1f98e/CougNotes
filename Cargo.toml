@@ -11,7 +11,7 @@ path = "src/server/main.rs"
 
 [dependencies]
 async-std = { version = "1.10.0", features = [ "attributes" ] }
-# dotenv = "0.15.0"
+rand = "0.8.5"
 rocket = { git = "https://github.com/SergioBenitez/Rocket", rev = "e382bc5", features = [ "json" ] }
 serde = { version = "1.0.117", features = [ "derive" ]}
 sqlx = { version = "0.5", features = [ "runtime-async-std-native-tls", "mysql" ] }

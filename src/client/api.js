@@ -51,8 +51,8 @@ function get_next_post(class_id, callback) {
 	get_url("/get-next-post/" + class_id, callback);
 }
 
-function get_next_response(post_id, callback) {
-	get_url("/get-next-resp/" + post_id, callback);
+function get_responses(post_id, callback) {
+	get_url("/get-resp/" + post_id, callback);
 }
 
 function reset_posts(callback) {
@@ -91,8 +91,8 @@ function create_post(title, content, img_url, student_uid, class_id, callback) {
 	post_json("/create-class", data, callback);
 }
 
-function gen_class_code(cid, callback) {
-	get_url("/gen-class-code/" + cid, callback);
+function gen_class_code(callback) {
+	get_url("/gen-class-code", callback);
 }
 
 function student_add_class(student_uid, class_id, callback) {

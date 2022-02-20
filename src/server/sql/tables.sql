@@ -81,6 +81,12 @@ FROM
 		On Classes.id = StudentClasses.class_id
 WHERE
 	Students.uid = 1;
+    
+SELECT class_id, class_name, section
+FROM
+	Classes JOIN ClassCodes ON Classes.id = ClassCodes.class_id
+WHERE
+	class_id = ?
 
 /*Return Code from class ID*/
 select codes from classCodes INNER JOIN classes ON classCodes.id = classes.id where
@@ -88,6 +94,3 @@ classes.id = 2;
 
 /* Return Notes.id from class ID*/
 SELECT Notes.id FROM Notes INNER JOIN classes ON Notes.classid = classes.id where classes.id=2;
-
-
-
