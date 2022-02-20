@@ -5,8 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    Hello world!
+    <header>
+        <ul class="nav">
+            <li>
+                <h1 class="cougnotes">CougNotes</h1>
+            </li>
+            <li>
+                <form action="index.html" class="searchbar">
+                    <input id='studentId' type="text" placeholder="Search">
+                </form>
+            </li>
+            <li>
+                <a href="profile.html">
+                <img src="./media/profile.png" alt="Profile image" width=300 class="profile-img">
+                </a>  
+            </li>
+        </ul>    
+    </header>
+
+    <section></section>
+
+    <section class="rooms">
+        <article class="private-notes" id="isInRoom">
+            <h1>Private Notes</h1>
+        </article>
+
+        <article class="not-in-room">
+            <h1>You are not in<br> a private room.</h1>
+        </article>
+
+        <section class="room__preview" id="isInRoom">
+
+        </section>
+        
+        <article class="comments" id='isInRoom'>
+            <h1>Comments</h1>
+        </article>
+
+    </section>
+    <section class="room__buttons">
+        <a href="createroom.html">Create Room</a>   
+        <a href="joinroom.html">Join Room</a>
+    </section>
 </body>
 </html>

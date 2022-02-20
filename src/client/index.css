@@ -1,5 +1,5 @@
 @font-face {
-    font-family: OpenSans;
+    font-family: "Open Sans";
     src: url(./font/OpenSans/OpenSans-Light.ttf) format('truetype');
 }
 
@@ -11,7 +11,6 @@
 
 body {
     background: #89182a;
-    
 }
 
 .logo {
@@ -36,15 +35,21 @@ body {
     padding: 0.15rem 0.5rem;
 }
 
+.login__form input[type="text"]:focus {
+    outline: none;
+}
+
 .enter {
     margin-top: 3vh;
     font-size: 0.875rem;
-    font-family: OpenSans;
+    font-family: "Open Sans";
+}
+
+.enter:hover {
+    text-decoration: underline;
 }
 
 .enter a {
     color: #fff;
     text-decoration: none;
 }
-
-

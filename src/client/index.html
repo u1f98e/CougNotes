@@ -6,23 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div id="root"></div> <!-- React -->
-    
-    
-    
     <section class="login">
-        <img src="./media/logo.png" alt="" width= 780px class="logo">
-        
-        <form action="home.html" class="login__form">
-            <input type="text" placeholder="Student ID">
-        </form>
-        
-        <h1 class="enter"><a href="home.html">Enter</a></h1>
-    </section>
+        <img src="./media/logo.png" alt="WSU Logo" width= 780px class="logo">
 
+        <div class="login__form">
+            <input id='studentId' type="text" placeholder="Student ID">
+            <button onclick="login()">Enter</button>
+        </div>
+    </section>
+    
     <script src="index.js"></script>
 </body>
 </html>
