@@ -150,7 +150,7 @@ body {
 .room__buttons a:nth-child(1):hover {
     transition: ease-out 0.33s;
 
-    box-shadow: inset 300px 0 0 0 #89182a;
+    box-shadow: inset 19rem 0 0 0 #89182a;
     border-color: #89182a;
 
     color: #fff;
@@ -161,7 +161,7 @@ body {
 .room__buttons a:nth-child(2):hover {
     transition: ease-out 0.33s;
 
-    box-shadow: inset 300px 0 0 0 #89182a;
+    box-shadow: inset 19rem 0 0 0 #89182a;
     border-color: #89182a;
 
     color: #fff;
