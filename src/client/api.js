@@ -70,10 +70,10 @@ function create_student(student_uid, first_name, last_name, img_url, callback) {
 	post_json("/create-student", data, callback);
 }
 
-function create_class(name, section, callback) {
+function create_class(class_name, section, callback) {
 	var data = {
 		"id": 0,
-		"name": name,
+		"class_name": class_name,
 		"section": section,
 	};
 	post_json("/create-class", data, callback);

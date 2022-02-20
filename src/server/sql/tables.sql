@@ -1,7 +1,7 @@
 CREATE DATABASE CougNotes;
 USE CougNotes;
 
-CREATE TABLE students (
+CREATE TABLE Students (
 	uid SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	first_name VARCHAR(200) NOT NULL,
 	last_name  VARCHAR(200) NOT NULL,
@@ -17,41 +17,70 @@ CREATE TABLE Notes (
 	img_url text,
 	title VARCHAR(200), 
 	students_uid SMALLINT UNSIGNED NOT NULL,
-	CONSTRAINT `fk_studentUID`  FOREIGN KEY (students_uid) REFERENCES students (uid)
+	CONSTRAINT `fk_studentUID`  FOREIGN KEY (students_uid) REFERENCES Students (uid)
 		ON DELETE CASCADE
 		ON UPDATE RESTRICT
 	) ENGINE = InnoDB;
 
-CREATE TABLE classCodes (
+CREATE TABLE ClassCodes (
 	id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	code VARCHAR(100) NOT NULL,
     class_id SMALLINT UNSIGNED NOT NULL,
-	codes VARCHAR(100) NOT NULL
-);
-
-
-CREATE TABLE classes (
-	id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	class_name VARCHAR(100) NOT NULL,
-	section VARCHAR(10) NOT NULL,
-	classCodes_id SMALLINT UNSIGNED NOT NULL,
-	CONSTRAINT `fk_classCode` FOREIGN KEY (classCodes_id) REFERENCES classCodes (id)
+    CONSTRAINT `fk_classCode` FOREIGN KEY (class_id) REFERENCES ClassCodes (id)
 		ON DELETE CASCADE
 		ON UPDATE RESTRICT
 	) Engine = InnoDB;
 
-SHOW tables;
+CREATE TABLE Classes (
+	id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	class_name VARCHAR(100) NOT NULL,
+	section VARCHAR(10) NOT NULL
+    ) Engine = InnoDB;
+	
 
+CREATE TABLE StudentClasses (
+	id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	student_id SMALLINT UNSIGNED NOT NULL,
+    class_id SMALLINT UNSIGNED NOT NULL,
+    CONSTRAINT `fk_student_id` FOREIGN KEY (student_id) REFERENCES Students (uid)
+		ON DELETE CASCADE
+        ON UPDATE RESTRICT,
+	CONSTRAINT `fk_class_id` FOREIGN KEY (class_id) REFERENCES Classes (id)
+		ON DELETE CASCADE
+        ON UPDATE RESTRICT
+    ) Engine = InnoDB;
+
+SHOW tables;
 
 /*queries below */
 
 /* Create student */
-INSERT INTO Students (uid, firstName, lastName, profilePic, studentID)
-	VALUES ();
+INSERT INTO Students (first_name, last_name, img_url, student_id)
+	VALUES ("Dave", "idk", "www.com", 0012345);
+
+INSERT INTO Classes (class_name, section)
+	VALUES("Cool class", "aaaa");
+
+SELECT * FROM Students;
 
 /* Get Student by id */
 SELECT uid as id, first_name, last_name, img_url, student_id
 FROM Students
-WHERE uid = 2;
+WHERE uid = 1;
+
+INSERT INTO StudentClasses (student_id, class_id)
+	VALUES(1, 1);
+    
+SELECT * FROM StudentClasses;
+
+SELECT class_id, class_name, section
+FROM 
+	(Students JOIN StudentClasses
+		ON Students.uid = StudentClasses.student_id)
+	JOIN Classes
+		On Classes.id = StudentClasses.class_id
+WHERE
+	Students.uid = 1;
 
 /*Return Code from class ID*/
 select codes from classCodes INNER JOIN classes ON classCodes.id = classes.id where
