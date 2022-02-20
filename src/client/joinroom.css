@@ -1,0 +1,106 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url(./font/OpenSans/OpenSans-Light.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url(./font/OpenSans/OpenSans-Bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-container {  
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 0;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . . . . . . . . ."
+      ". . . Join-Room Join-Room Join-Room Join-Room . . ."
+      ". . . . . . . . . ."
+      "room-number room-number room-number room-number form form . . . ."
+      ". . . . Join Join . . . ."
+      ". . . . . . . . . ."
+      ". . . . . . . . . .";
+
+    width: 100%;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.join-room {
+    text-align: center;
+}
+
+.grid-container h1 {
+    grid-area: Join-Room;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.grid-container h2 { 
+    grid-area: room-number;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.25rem;
+    font-weight: normal;
+    text-align: right;
+
+    margin-right: 5%; // separate this from the form field
+}
+
+.grid-container form {
+    grid-area: form;
+}
+
+.grid-container form input[type="text"] {
+    font-size: 1.125em;
+
+    padding: 1% 0;
+}
+
+.grid-container form input[type="text"]:focus {
+    outline: none;
+}
+
+.grid-container a {
+    grid-area: Join;
+
+    width: 50%;
+    
+    position: relative;
+    left: 25%;
+
+    padding: 5% 0;
+
+    background-color: #fff;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    color: #000;
+    text-decoration: none;
+
+    border: 0.125rem solid #000;
+}
+
+.grid-container a:hover {
+    transition: ease-out 0.33s;
+
+    box-shadow: inset 19rem 0 0 0 #89182a;
+    
+    color: #fff;
+}
