@@ -12,7 +12,10 @@ CREATE TABLE students (
 
 CREATE TABLE Notes (
 	id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	content text, imageURLs text,
+	classid SMALLINT UNSIGNED NOT NULL,
+	content text, 
+	imageURLs text,
+	title VARCHAR(200), 
 	students_uid SMALLINT UNSIGNED NOT NULL,
 	CONSTRAINT `fk_studentUID`  FOREIGN KEY (students_uid) REFERENCES students (uid)
 		ON DELETE CASCADE
@@ -43,4 +46,8 @@ SHOW tables;
 /*Return UID from class ID*/
 select codes from classCodes INNER JOIN classes ON classCodes.id = classes.id where
 classes.id = 2;
+
+/* Return Notes.id from class ID*/
+SELECT Notes.id FROM Notes INNER JOIN classes ON Notes.classid = classes.id where classes.id=2;
+
 

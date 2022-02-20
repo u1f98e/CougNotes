@@ -7,7 +7,6 @@
 | students            |
 +---------------------+
 
-
 Students:
 +------------+----------------------+------+-----+---------+----------------+
 | Field      | Type                 | Null | Key | Default | Extra          |
@@ -17,8 +16,10 @@ Students:
 | lastName   | varchar(200)         | NO   |     | NULL    |                |
 | profilePic | text                 | YES  |     | NULL    |                |
 | studentID  | smallint(5) unsigned | NO   |     | NULL    |                |
+| bio        | text                 | YES  |     | NULL    |                |
 +------------+----------------------+------+-----+---------+----------------+
 
+classCodes:
 +-------+----------------------+------+-----+---------+----------------+
 | Field | Type                 | Null | Key | Default | Extra          |
 +-------+----------------------+------+-----+---------+----------------+
@@ -45,6 +46,8 @@ Notes:
 | content      | text                 | YES  |     | NULL    |                |
 | imageURLs    | text                 | YES  |     | NULL    |                |
 | students_uid | smallint(5) unsigned | NO   | MUL | NULL    |                |
+| title        | varchar(200)         | YES  |     | NULL    |                |
+| classid      | smallint(5) unsigned | NO   |     | NULL    |                |
 +--------------+----------------------+------+-----+---------+----------------+
 
 
