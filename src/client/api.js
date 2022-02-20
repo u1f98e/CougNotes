@@ -73,7 +73,7 @@ export function create_student(student_uid, first_name, last_name, img_url, call
 export function create_class(name, section, callback) {
 	var data = {
 		"id": 0,
-		"name": name,
+		"class_name": class_name,
 		"section": section,
 	};
 	post_json("/create-class", data, callback);
