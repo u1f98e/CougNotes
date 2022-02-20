@@ -1,7 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+"use strict"
 
-ReactDOM.render(
-    <h1>Hello, world!</h1>,
-    document.getElementById('root')
-);
+let isInRoom = document.getElementById('isInRoom');
+
+let studentId = document.getElementById('studentId');
+
+function login() {
+    const studentId = document.getElementById('studentId');
+
+    console.log(studentId.value);
+
+    if (studentId.value * 10 >= 110000000 && studentId.value * 10 <= 120000000) {
+        document.location.href = "home.html";
+    }
+}
