@@ -1,5 +1,6 @@
 use std::path::PathBuf;
 use std::{path::Path, sync::Arc};
+use std::sync::Mutex;
 
 use async_std;
 use rocket::serde::{Serialize, Deserialize};
@@ -8,6 +9,14 @@ use sqlx::mysql::MySqlPoolOptions as PoolOptions;
 #[macro_use] extern crate rocket;
 use rocket::fs::NamedFile;
 use rocket::serde::{Serialize, Deserialize, json::Json};
+
+
+use sqlx::mysql::MySqlPool as Pool;
+use static_init::dynamic;
+
+#[dynamic]
+pub static sql_pool: Mutex<Option<Pool>> = Mutex::new(None);
+
 
 #[derive(Serialize, Deserialize)]
 struct Student {
@@ -133,8 +142,9 @@ fn launch() -> _ {
         reset_posts,
         create_student,
         create_class,
+        create_post,
         gen_class_code,
-        create_post
+        student_add_class
     ];
 
     rocket::build().mount("/", routes)
